@@ -2,25 +2,58 @@
     <head>
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="384902309047-a8lbl304mbumkoi4hie6c23a1ee87ngl.apps.googleusercontent.com">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <body>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-        <script>
-            function onSignIn(googleUser) {
-                // Useful data for your client-side scripts:
-                var profile = googleUser.getBasicProfile();
-                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                console.log('Full Name: ' + profile.getName());
-                console.log('Given Name: ' + profile.getGivenName());
-                console.log('Family Name: ' + profile.getFamilyName());
-                console.log("Image URL: " + profile.getImageUrl());
-                console.log("Email: " + profile.getEmail());
-
-                // The ID token you need to pass to your backend:
-                var id_token = googleUser.getAuthResponse().id_token;
-                console.log("ID Token: " + id_token);
-            };
-        </script>
+        <div class="section"></div>
+        <main>
+            <center>
+                <img class="responsive-img" style="width: 250px;" src="http://i.imgur.com/ax0NCsK.gif" />
+                <div class="section"></div>
+                
+                <h5 class="indigo-text">Esegui il Login</h5>
+                <div class="section"></div>
+                
+                <div class="container">
+                    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+                        
+                        <form class="col s12" method="post" action="Login.jsp">
+                            <div class='row'>
+                                <div class='col s12'>
+                                </div>
+                            </div>
+                            
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type='email' name='email' id='email' placeholder="E-Mail"/>
+                                </div>
+                            </div>
+                            
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type='password' name='password' id='password' placeholder="Password" />
+                                </div>
+                                <label style='float: right;'>
+                                    <a class='pink-text' href='#!'><b>Password Dimenticata ?</b></a>
+                                </label>
+                            </div>
+                            
+                            <br />
+                            <center>
+                                <div class='row'>
+                                    <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                                </div>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+                <a href="#!">Crea un account</a>
+            </center>
+            
+            <div class="section"></div>
+            <div class="section"></div>
+        </main>
     </body>
 </html>
