@@ -1,7 +1,7 @@
 <%-- 
     Document   : Login
     Created on : 8-mar-2017, 13.03.34
-    Author     : barlassina.lorenzoyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+    Author     : barlassina.lorenzo
 --%>
 
 <%@page language="java" import="java.lang.*,java.util.*,java.sql.*" %>
@@ -27,9 +27,9 @@
             Class.forName("com.mysql.jdbc.Driver");
             String UrlConnessione= "jdbc:mysql://localhost:3306/dbeventi";
             Connection con = DriverManager.getConnection(UrlConnessione,"user","admin");
-            String querySQL = "SELECT * FROM users";
+            String querySQL = "SELECT * FROM utenti";
             Statement stmt = con.createStatement();
-            out.write("Ciao");
+            out.write("Ciao ");
             ResultSet rs = stmt.executeQuery(querySQL);
             while(rs.next()){
                 usernameDB = rs.getString("username");
@@ -41,12 +41,17 @@
                     logginIn="username o password errati";
                 }
             }
+        Statement log = con.createStatement();
+        log.execute("UPDATE utenti SET LoggedIN = 1 WHERE username = '"+usernameDB+"' AND password = '"+passwordDB+"'");
         con.close();
         }catch(Exception e){
             e.printStackTrace();
         }   
         //stampa del logIn
+        out.write(usernameDB+" ");
         out.write(logginIn);
         %>
+        
+        <button> Logout </button>
     </body>
 </html>
